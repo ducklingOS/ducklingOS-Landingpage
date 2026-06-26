@@ -1,0 +1,425 @@
+/* Globale Stile und Variablen */
+:root {
+    --primary-yellow: #fdd835; /* Ein leuchtendes Gelb, inspiriert vom Bild */
+    --dark-background: #1a1a1a; /* Ein sehr dunkles Grau, fast Schwarz */
+    --text-color: #f5f5f5;
+    --card-background: #2c2c2c;
+    --font-family: 'Lato', sans-serif;
+}
+
+/* Basis-Reset und Body-Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-background);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Page Container für Sidebar-Verschiebung */
+#page-container {
+    position: relative;
+    transition: margin-right 0.4s ease-in-out;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header und Navigation */
+header {
+    background-color: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--card-background);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.logo img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+}
+
+/* Allgemeine Navigationsstile */
+.desktop-nav {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-grow: 1; /* Erlaubt dem Element, den verfügbaren Platz zu füllen */
+    justify-content: center; /* Zentriert die Links innerhalb des Elements */
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.desktop-nav a:hover {
+    color: var(--primary-yellow);
+}
+
+/* Hero-Sektion */
+#hero {
+    text-align: center;
+    padding: 6rem 2rem;
+}
+
+#hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-yellow);
+}
+
+#hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-yellow);
+    color: var(--dark-background);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* Features-Sektion */
+#features {
+    padding: 4rem 2rem;
+}
+
+#features h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--card-background);
+}
+
+/* About-Sektion */
+#about {
+    padding: 6rem 2rem;
+    background-color: var(--card-background);
+    border-radius: 8px;
+}
+
+#about h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-yellow);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-image {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-yellow);
+    flex-shrink: 0;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+/* Screenshots-Sektion */
+#screenshots {
+    padding: 4rem 2rem;
+}
+
+#screenshots h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.screenshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.screenshot-item img {
+    width: 100%;
+    border-radius: 8px;
+    border: 3px solid var(--card-background);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.screenshot-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border-color: var(--primary-yellow);
+}
+
+.screenshot-item p {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #aaa;
+}
+
+/* Menü-Button und Sidebar */
+.menu-button { /* Der Button im Header für mobile Ansicht */
+    display: none; /* Wird nur auf kleineren Bildschirmen angezeigt */
+    background-color: var(--primary-yellow);
+    color: var(--dark-background) !important;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.menu-button:hover {
+    color: var(--dark-background) !important;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 0; /* Standardmäßig geschlossen auf Mobilgeräten */
+    background-color: #1f1f1f;
+    z-index: 200;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+    border-left: 1px solid var(--card-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 220px; /* Feste Breite für den Inhalt */
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.5rem 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+#sidebar ul li a:hover {
+    color: var(--primary-yellow);
+}
+
+/* --- Responsive Design --- */
+
+/* Mobile Ansicht (bis 1024px) */
+@media (max-width: 768px) {
+    header .desktop-nav {
+        display: none;
+    }
+    .mobile-only {
+        display: block;
+        text-align: center;
+    }
+    #sidebar.mobile-open {
+        width: 280px; /* Öffnet die Sidebar auf mobilen Geräten */
+    }
+}
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+/* Desktop Ansicht (ab 1025px) */
+@media (min-width: 1025px) {
+    /* Hauptnavigation im Header ausblenden, da sie in der Sidebar ist */
+    .mobile-only {
+        display: none; /* Menü-Button auf dem Desktop ausblenden */
+    }
+
+    /* Sidebar als schmale Leiste anzeigen */
+    #sidebar {
+        width: 60px;
+        padding-top: 60px;
+        justify-content: flex-start;
+    }
+    #sidebar ul li a {
+        text-indent: 200%; /* Versteckt den Text, aber behält den Platz */
+        white-space: nowrap;
+    }
+
+    .desktop-only {
+        display: block;
+    }
+
+    /* Stile für die ausgeklappte Sidebar auf dem Desktop */
+    #page-container.sidebar-open {
+        /* Verschiebt den gesamten Seitencontainer (inkl. Header) nach links */
+        margin-right: 220px; /* 280px (offen) - 60px (geschlossen) = 220px */
+    }
+
+    #page-container.sidebar-open #sidebar {
+        width: 280px; /* Klappt die Sidebar aus */
+    }
+    #page-container.sidebar-open #sidebar ul li a {
+        text-indent: 0; /* Zeigt den Text wieder an */
+    }
+}
+
+/* Roadmap-Sektion */
+#roadmap {
+    padding: 6rem 2rem;
+}
+
+#roadmap h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.roadmap-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    color: #aaa;
+}
+
+.roadmap-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    /* Die vertikale Linie der Timeline */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 20px;
+        height: 100%;
+        width: 3px;
+        background-color: var(--card-background);
+        border-radius: 3px;
+    }
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 60px; /* Platz für den Punkt */
+    /* Der Punkt auf der Timeline */
+    &::before {
+        content: '';
+        position: absolute;
+        left: 12px; /* Zentriert den Punkt auf der Linie */
+        top: 5px;
+        height: 18px;
+        width: 18px;
+        background-color: var(--primary-yellow);
+        border-radius: 50%;
+        border: 3px solid var(--dark-background);
+        z-index: 1;
+    }
+}
+
+/* Unterschiedliche Größen für die Punkte */
+.timeline-item.major::before {
+    transform: scale(1.2);
+}
+.timeline-item.edition::before {
+    transform: scale(1.5);
+    background-color: #ffb300; /* Etwas dunkleres Gelb für die größte Version */
+}
+
+.timeline-content h3, .timeline-content h4, .timeline-content h5 {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-year {
+    color: #aaa;
+    font-weight: 400;
+    font-size: 0.9em;
+}
