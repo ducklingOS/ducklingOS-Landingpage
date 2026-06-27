@@ -1,13 +1,13 @@
-/* Globale Stile und Variablen */
+/* Global Styles and Variables */
 :root {
-    --primary-yellow: #fdd835; /* Ein leuchtendes Gelb, inspiriert vom Bild */
-    --dark-background: #1a1a1a; /* Ein sehr dunkles Grau, fast Schwarz */
+    --primary-yellow: #fdd835; /* A bright yellow, inspired by the image */
+    --dark-background: #1a1a1a; /* A very dark gray, almost black */
     --text-color: #f5f5f5;
     --card-background: #2c2c2c;
     --font-family: 'Lato', sans-serif;
 }
 
-/* Basis-Reset und Body-Styling */
+/* Base Reset and Body Styling */
 * {
     margin: 0;
     padding: 0;
@@ -25,7 +25,7 @@ body {
     line-height: 1.6;
 }
 
-/* Page Container für Sidebar-Verschiebung */
+/* Page Container for sidebar shift */
 #page-container {
     position: relative;
     transition: margin-right 0.4s ease-in-out;
@@ -37,7 +37,7 @@ body {
     padding: 0 2rem;
 }
 
-/* Header und Navigation */
+/* Header and Navigation */
 header {
     background-color: rgba(26, 26, 26, 0.8);
     backdrop-filter: blur(10px);
@@ -79,13 +79,13 @@ header .container {
     font-size: 1.5rem;
 }
 
-/* Allgemeine Navigationsstile */
+/* General Navigation Styles */
 .desktop-nav {
     list-style: none;
     display: flex;
     gap: 1.5rem;
-    flex-grow: 1; /* Erlaubt dem Element, den verfügbaren Platz zu füllen */
-    justify-content: center; /* Zentriert die Links innerhalb des Elements */
+    flex-grow: 1; /* Allows the element to fill the available space */
+    justify-content: center; /* Centers the links within the element */
 }
 
 .desktop-nav a {
@@ -99,7 +99,7 @@ header .container {
     color: var(--primary-yellow);
 }
 
-/* Hero-Sektion */
+/* Hero Section */
 #hero {
     text-align: center;
     padding: 6rem 2rem;
@@ -132,7 +132,7 @@ header .container {
     transform: scale(1.05);
 }
 
-/* Features-Sektion */
+/* Features Section */
 #features {
     padding: 4rem 2rem;
 }
@@ -164,7 +164,7 @@ footer {
     border-top: 1px solid var(--card-background);
 }
 
-/* About-Sektion */
+/* About Section */
 #about {
     padding: 6rem 2rem;
     background-color: var(--card-background);
@@ -199,7 +199,7 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* Screenshots-Sektion */
+/* Screenshots Section */
 #screenshots {
     padding: 4rem 2rem;
 }
@@ -230,7 +230,7 @@ footer {
     border-color: var(--primary-yellow);
 }
 
-/* Download-Sektion */
+/* Download Section */
 #download {
     padding: 4rem 2rem;
 }
@@ -267,7 +267,7 @@ footer {
     margin-bottom: 0.5rem;
 }
 .download-item p {
-    flex-grow: 1; /* Sorgt dafür, dass der Button unten bleibt */
+    flex-grow: 1; /* Ensures the button stays at the bottom */
     margin-bottom: 1.5rem;
 }
 .screenshot-item p {
@@ -277,9 +277,9 @@ footer {
     color: #aaa;
 }
 
-/* Menü-Button und Sidebar */
-.menu-button { /* Der Button im Header für mobile Ansicht */
-    display: none; /* Wird nur auf kleineren Bildschirmen angezeigt */
+/* Menu Button and Sidebar */
+.menu-button { /* The button in the header for mobile view */
+    display: none; /* Only displayed on smaller screens */
     background-color: var(--primary-yellow);
     color: var(--dark-background) !important;
     border: none;
@@ -305,8 +305,8 @@ footer {
     position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
-    width: 0; /* Standardmäßig geschlossen auf Mobilgeräten */
+    height: 100vh; /* Full viewport height */
+    width: 0; /* Closed by default on mobile devices */
     background-color: #1f1f1f;
     z-index: 200;
     overflow: hidden;
@@ -321,8 +321,8 @@ footer {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    width: 220px; /* Feste Breite für den Inhalt */
+    gap: 1rem; /* Spacing between items */
+    width: 220px; /* Fixed width for the content */
 }
 
 #sidebar ul li a {
@@ -341,17 +341,17 @@ footer {
 
 /* --- Responsive Design --- */
 
-/* Mobile Ansicht (bis 1024px) */
+/* Mobile View (up to 768px) */
 @media (max-width: 768px) {
     header .desktop-nav {
         display: none;
     }
     .mobile-only {
         display: block;
-        text-align: center;
+        text-align: center; /* Ensure button text is centered if it wraps */
     }
     #sidebar.mobile-open {
-        width: 280px; /* Öffnet die Sidebar auf mobilen Geräten */
+        width: 280px; /* Opens the sidebar on mobile devices */
     }
 }
 @media (min-width: 769px) {
@@ -360,21 +360,21 @@ footer {
     }
 }
 
-/* Desktop Ansicht (ab 1025px) */
+/* Desktop View (from 1025px) */
 @media (min-width: 1025px) {
-    /* Hauptnavigation im Header ausblenden, da sie in der Sidebar ist */
+    /* Hide main navigation in header, as it's in the sidebar */
     .mobile-only {
-        display: none; /* Menü-Button auf dem Desktop ausblenden */
+        display: none; /* Hide mobile menu button on desktop */
     }
 
-    /* Sidebar als schmale Leiste anzeigen */
+    /* Display sidebar as a narrow bar */
     #sidebar {
         width: 60px;
         padding-top: 60px;
         justify-content: flex-start;
     }
     #sidebar ul li a {
-        text-indent: 200%; /* Versteckt den Text, aber behält den Platz */
+        text-indent: 200%; /* Hides the text, but keeps the space */
         white-space: nowrap;
     }
 
@@ -382,21 +382,21 @@ footer {
         display: block;
     }
 
-    /* Stile für die ausgeklappte Sidebar auf dem Desktop */
+    /* Styles for the expanded sidebar on desktop */
     #page-container.sidebar-open {
-        /* Verschiebt den gesamten Seitencontainer (inkl. Header) nach links */
-        margin-right: 220px; /* 280px (offen) - 60px (geschlossen) = 220px */
+        /* Shifts the entire page container (incl. header) to the left */
+        margin-right: 220px; /* 280px (open) - 60px (closed) = 220px */
     }
 
     #page-container.sidebar-open #sidebar {
-        width: 280px; /* Klappt die Sidebar aus */
+        width: 280px; /* Expands the sidebar */
     }
     #page-container.sidebar-open #sidebar ul li a {
-        text-indent: 0; /* Zeigt den Text wieder an */
+        text-indent: 0; /* Shows the text again */
     }
 }
 
-/* Roadmap-Sektion */
+/* Roadmap Section */
 #roadmap {
     padding: 6rem 2rem;
 }
@@ -418,8 +418,8 @@ footer {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 0;
-    /* Die vertikale Linie der Timeline */
+    padding: 2rem 0; /* Spacing for the timeline */
+    /* The vertical line of the timeline */
     &::before {
         content: '';
         position: absolute;
@@ -434,13 +434,13 @@ footer {
 
 .timeline-item {
     position: relative;
-    margin-bottom: 2rem;
-    padding-left: 60px; /* Platz für den Punkt */
-    /* Der Punkt auf der Timeline */
+    margin-bottom: 2rem; /* Spacing between items */
+    padding-left: 60px; /* Space for the dot */
+    /* The dot on the timeline */
     &::before {
         content: '';
         position: absolute;
-        left: 12px; /* Zentriert den Punkt auf der Linie */
+        left: 12px; /* Centers the dot on the line */
         top: 5px;
         height: 18px;
         width: 18px;
@@ -451,13 +451,13 @@ footer {
     }
 }
 
-/* Unterschiedliche Größen für die Punkte */
+/* Different sizes for the dots */
 .timeline-item.major::before {
     transform: scale(1.2);
 }
 .timeline-item.edition::before {
     transform: scale(1.5);
-    background-color: #ffb300; /* Etwas dunkleres Gelb für die größte Version */
+    background-color: #ffb300; /* A slightly darker yellow for the largest version */
 }
 
 .timeline-content h3, .timeline-content h4, .timeline-content h5 {
