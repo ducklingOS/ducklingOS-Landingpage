@@ -17,14 +17,9 @@
                 <img src="Duckling1.jpg.jpeg" alt="DucklingOS Logo">
                 <h1>DucklingOS</h1>
             </a>
-            <ul class="desktop-nav">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#download">Download</a></li>
-                <li><a href="https://github.com/DucklingOS" target="_blank">GitHub</a></li>
-            </ul>
             <div class="header-buttons">
-                <button id="desktop-sidebar-toggle" class="menu-button desktop-only">&laquo;</button> <!-- For Desktop only -->
-                <button id="menu-toggle" class="menu-button mobile-only">Menu</button> <!-- For Mobile only -->
+                <!-- This button will toggle the sidebar on all screen sizes -->
+                <button id="sidebar-toggle" class="menu-button" aria-label="Toggle navigation" aria-expanded="false">&laquo;</button>
             </div>
         </nav>
     </header>
@@ -44,7 +39,7 @@
     <main>
         <section id="hero" class="container">
             <h2>Easy, Elegant, Professional, Fast</h2>
-            <p>DucklingOS is a Linux based operating system designed by 2 students to be rather simple or powerful for the users</p>
+            <p>DucklingOS is a Linux-based operating system designed by two students. It aims to be simple enough for beginners, yet powerful enough for experts.</p>
             <a href="#download" class="cta-button">Go to Downloads</a>
         </section>
 
@@ -52,60 +47,60 @@
             <h2>Features</h2>
             <div class="feature-grid">
                 <div class="feature-item">
-                    <h3>Better than Windows</h3>
-                    <p>Nothing hard but nice.</p>
+                    <h3>Modern User Experience</h3>
+                    <p>A clean, intuitive, and bloat-free user experience.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>Easy Boot</h3>
-                    <p>What should we say we guess its nice.</p>
+                    <h3>Effortless Setup</h3>
+                    <p>A streamlined installation and boot process to get you started quickly.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>Secured and Clean</h3>
-                    <p>Pretty new so no exploits and a nice Limine Design.</p>
+                    <h3>Secure by Design</h3>
+                    <p>Built on a modern foundation with security in mind, featuring a clean Limine bootloader design.</p>
                 </div>
             </div>
         </section>
 
         <section id="screenshots" class="container">
-            <h2>Screenshots of the System will be posted as soon as theres the 1.0!</h2>
+            <h2>First look at DucklingOS 1.0 coming soon!</h2>
             <div class="screenshot-grid">
-                <div class="screenshot-item">
+                <figure class="screenshot-item">
                     <img src="https://via.placeholder.com/800x450/2c2c2c/fdd835?text=Desktop-View" alt="Screenshot of the DucklingOS Desktop">
-                    <p>-Desktop-</p>
-                </div>
-                <div class="screenshot-item">
+                    <figcaption>Desktop</figcaption>
+                </figure>
+                <figure class="screenshot-item">
                     <img src="https://via.placeholder.com/800x450/2c2c2c/fdd835?text=File-Manager" alt="Screenshot of the File Manager">
-                    <p>-File Manager-</p>
-                </div>
-                <div class="screenshot-item">
+                    <figcaption>File Manager</figcaption>
+                </figure>
+                <figure class="screenshot-item">
                     <img src="https://via.placeholder.com/800x450/2c2c2c/fdd835?text=Terminal" alt="Screenshot of the Terminal">
-                    <p>-Terminal-</p>
-                </div>
+                    <figcaption>Terminal</figcaption>
+                </figure>
             </div>
         </section>
 
         <section id="download" class="container">
             <h2>Downloads</h2>
-            <p class="download-intro">Download our Softwares and/ or the operating system, all Apps come pre installed on the OS, but here to be used on other operating systems as well.</p>
+            <p class="download-intro">Explore our software suite. The full operating system includes all applications, but you can also download them individually for use on other platforms.</p>
             <div class="download-grid">
                 <div class="download-item os-download">
                     <h3>DucklingOS 1</h3>
-                    <p>DucklingOS 1, the main operating system based on Linux build to be powerful and easy. Sideboot to Windows possible but Duckling is better because theres no copilot.</p>
+                    <p>The primary DucklingOS distribution. Built on a stable Linux core, it's designed for both power and simplicity. Dual-booting with other operating systems is fully supported.</p>
                 <a href="https://github.com/ducklingOS/ducklingOS-1/actions/runs/28238142595" target="_blank" class="cta-button">Download from GitHub</a>
                 </div>
                 <div class="download-item">
-                    <h3>Duckling Datamanager</h3>
-                    <p>Datamanager with simple interface and design, pre installed on DucklingOS but also downloadable as a standalone application for other systems.</p>
+                    <h3>Duckling File Manager</h3>
+                    <p>A file manager with a clean interface and intuitive design. Pre-installed on DucklingOS and available as a standalone application for other systems.</p>
                     <a href="#" class="cta-button disabled">Coming soon</a>
                 </div>
                 <div class="download-item">
                     <h3>Duckling Notes</h3>
-                    <p>Easy to use note-taking app for capturing ideas and thoughts for any purpose.</p>
+                    <p>An intuitive note-taking app for capturing your ideas and thoughts, for any purpose.</p>
                     <a href="#" class="cta-button disabled">Coming soon</a>
                 </div>
                 <div class="download-item">
                     <h3>Duckling Web  (Browser)</h3>
-                    <p>Secured and clean Browser based on Chromium and designed for a seamless browsing experience.</p>
+                    <p>A secure and clean web browser based on Chromium, designed for a seamless and private browsing experience.</p>
                     <a href="https://github.com/ducklingOS/ducklingWeb" target="_blank" class="cta-button">Download from GitHub</a>
                 </div>
             </div>
@@ -116,8 +111,8 @@
             <div class="about-content">
                 <img src="Duckling1.jpg.jpeg" alt="DucklingOS Logo in the About-Us section" class="about-image">
                 <div class="about-text">
-                    <p>Duckling is a free Open Source operating system. We started building because of bordem and we want to achieve a good operating system everyone can use in their own  way and can reuse as a base for their own systems.</p>
-                    <p>DucklingOS is a work in progress operating system based on Linux, supposed to be made easy to use for casual PC users or beginners but powerful and good for PC / IT experts or advanced users we are developing it with AI parts (as a disclaimer) we do program and work on it on our own and all design and possible work flow is done by us. We are working on it since the 26th of June 2026, and are looking forward for a hopeful and hopefully a sucessful future for the OS, us and our users.</p>
+                    <p>Duckling is a free, open-source operating system. We started this project out of a passion for technology and a desire to create a great OS that anyone can use, customize, and build upon.</p>
+                    <p>DucklingOS is a work-in-progress based on Linux, designed to be intuitive for casual users and beginners, while remaining powerful and flexible for IT experts and advanced users. While we leverage modern tools, including AI, for development assistance, all core design, programming, and workflow decisions are our own. We started development on June 26th, 2024, and look forward to a successful future for the OS, our team, and our community.</p>
                 </div>
             </div>
         </section>
@@ -127,27 +122,27 @@
             <p class="roadmap-intro">Our vision for the future of DucklingOS. The plans are flexible and will be shaped by the community.</p>
 
             <div class="roadmap-timeline">
-                <!-- Beispiel für eine neue Edition (alle 3 Jahre) -->
+                <!-- Example for a new edition (every 3 years) -->
                 <div class="timeline-item edition">
                     <div class="timeline-content">
-                        <h3>DucklingOS 2.0.0 / other name (new OS) <span class="timeline-year">(2029)</span></h3>
-                        <p>Full new Version and OS: DucklingOS 2/ other name not planned out yet.</p>
+                        <h3>New Major Edition <span class="timeline-year">(2029)</span></h3>
+                        <p>A completely new version of the OS, potentially under a new name. Details to be determined.</p>
                     </div>
                 </div>
 
-                <!-- Beispiel für eine größere Version (jährlich) -->
+                <!-- Example for a major version (yearly) -->
                 <div class="timeline-item major">
                     <div class="timeline-content">
-                        <h4>DucklingOS 1.1.x <span class="timeline-year">(2026/27)</span></h4>
-                        <p>Big Update with new features, supports and more detailed ideas not out yet.</p>
+                        <h3>DucklingOS 1.1.x <span class="timeline-year">(2026-2027)</span></h3>
+                        <p>Major update with new features, improved hardware support, and more. Detailed plans will be shared closer to the date.</p>
                     </div>
                 </div>
 
-                <!-- Beispiel für eine kleine Version (monatlich/quartalsweise) -->
+                <!-- Example for a minor version (monthly/quarterly) -->
                 <div class="timeline-item minor">
                     <div class="timeline-content">
-                        <h5>DucklingOS 1.0.1<span class="timeline-year">(Q2 2026)</span></h5>
-                        <p>security/ bug fix updates and small feature additions </p>
+                        <h3>DucklingOS 1.0.1<span class="timeline-year">(Q3 2024)</span></h3>
+                        <p>Security updates, bug fixes, and minor feature additions.</p>
                     </div>
                 </div>
             </div>
@@ -155,26 +150,24 @@
     </main>
 
     <footer>
-        <p>No rights reserved but please dont copy.</p>
+        <p>DucklingOS Group 2026 - open source OS and software resources, 1:1 copies reserved. </p>
     </footer>
 
 </div>
 
     <script>
-        const mobileMenuToggle = document.getElementById('menu-toggle');
-        const desktopSidebarToggle = document.getElementById('desktop-sidebar-toggle');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
         const sidebar = document.getElementById('sidebar');
         const pageContainer = document.getElementById('page-container');
 
-        // Für den Desktop-Modus (Sidebar schiebt Inhalt)
-        desktopSidebarToggle.addEventListener('click', () => {
+        sidebarToggle.addEventListener('click', () => {
+            // This single function toggles the sidebar for all screen sizes.
+            // The visual effect (push vs. overlay) will be handled by CSS media queries.
             pageContainer.classList.toggle('sidebar-open');
-            desktopSidebarToggle.textContent = pageContainer.classList.contains('sidebar-open') ? '«' : '»';
-        });
 
-        // Für den mobilen Modus (Sidebar überlagert Inhalt)
-        mobileMenuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('mobile-open');
+            const isSidebarOpen = pageContainer.classList.contains('sidebar-open');
+            sidebarToggle.textContent = isSidebarOpen ? '«' : '»';
+            sidebarToggle.setAttribute('aria-expanded', isSidebarOpen);
         });
     </script>
 

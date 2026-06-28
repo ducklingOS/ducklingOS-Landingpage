@@ -1,10 +1,12 @@
 /* Global Styles and Variables */
 :root {
-    --primary-yellow: #fdd835; /* A bright yellow, inspired by the image */
+    --primary-yellow: #fdd835; /* A bright yellow, inspired by the logo */
     --dark-background: #1a1a1a; /* A very dark gray, almost black */
     --text-color: #f5f5f5;
     --card-background: #2c2c2c;
     --font-family: 'Lato', sans-serif;
+    --sidebar-width-open: 250px;
+    --sidebar-width-closed: 0px; /* On mobile, it's completely hidden */
 }
 
 /* Base Reset and Body Styling */
@@ -28,7 +30,8 @@ body {
 /* Page Container for sidebar shift */
 #page-container {
     position: relative;
-    transition: margin-right 0.4s ease-in-out;
+    left: 0;
+    transition: left 0.4s ease-in-out;
 }
 
 .container {
@@ -37,10 +40,27 @@ body {
     padding: 0 2rem;
 }
 
-/* Header and Navigation */
+/* General Section Styling */
+section {
+    padding: 5rem 0;
+}
+
+section:nth-of-type(odd) {
+    background-color: var(--card-background);
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-yellow);
+}
+
+/* Header */
 header {
     background-color: rgba(26, 26, 26, 0.8);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -48,16 +68,10 @@ header {
     border-bottom: 1px solid var(--card-background);
 }
 
-header .container {
+header nav.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.header-buttons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
 }
 
 .logo {
@@ -79,36 +93,82 @@ header .container {
     font-size: 1.5rem;
 }
 
-/* General Navigation Styles */
-.desktop-nav {
-    list-style: none;
+/* Sidebar Navigation */
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: 0; /* Aligns to the right */
+    height: 100vh;
+    width: 0; /* Hidden by default */
+    background-color: #1f1f1f;
+    z-index: 200;
+    overflow: hidden;
+    transition: width 0.4s ease-in-out;
+    border-left: 1px solid var(--card-background);
     display: flex;
-    gap: 1.5rem;
-    flex-grow: 1; /* Allows the element to fill the available space */
-    justify-content: center; /* Centers the links within the element */
+    align-items: center;
+    justify-content: center;
 }
 
-.desktop-nav a {
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#sidebar ul li a {
     text-decoration: none;
     color: var(--text-color);
+    font-size: 1.2rem;
     font-weight: 700;
-    transition: color 0.3s ease;
+    padding: 1rem 2rem;
+    display: block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    white-space: nowrap; /* Prevents text from wrapping */
 }
 
-.desktop-nav a:hover {
+#sidebar ul li a:hover {
+    color: var(--dark-background);
+    background-color: var(--primary-yellow);
+}
+
+/* Menu Toggle Button */
+.menu-button {
+    background: none;
+    border: 2px solid var(--primary-yellow);
     color: var(--primary-yellow);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button:hover {
+    background-color: var(--primary-yellow);
+    color: var(--dark-background);
+}
+
+/* Sidebar Open State (handled by JS) */
+#page-container.sidebar-open #sidebar {
+    width: var(--sidebar-width-open);
 }
 
 /* Hero Section */
 #hero {
     text-align: center;
     padding: 6rem 2rem;
+    background: none; /* Override alternating section background */
 }
 
 #hero h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: var(--primary-yellow);
 }
 
 #hero p {
@@ -125,102 +185,48 @@ header .container {
     border-radius: 5px;
     text-decoration: none;
     font-weight: 700;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(253, 216, 53, 0.4);
 }
 
-/* Features Section */
-#features {
-    padding: 4rem 2rem;
+.cta-button.disabled {
+    background-color: #444;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
-#features h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-}
-
-.feature-grid {
+/* Grid Layouts (Features, Screenshots, Downloads) */
+.feature-grid, .screenshot-grid, .download-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
 .feature-item {
-    background-color: var(--card-background);
+    background-color: var(--dark-background);
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
 }
 
-/* Footer */
-footer {
+.screenshot-item figcaption {
     text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
-    border-top: 1px solid var(--card-background);
-}
-
-/* About Section */
-#about {
-    padding: 6rem 2rem;
-    background-color: var(--card-background);
-    border-radius: 8px;
-}
-
-#about h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--primary-yellow);
-}
-
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.about-image {
-    height: 180px;
-    width: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--primary-yellow);
-    flex-shrink: 0;
-}
-
-.about-text p {
-    margin-bottom: 1rem;
-}
-
-/* Screenshots Section */
-#screenshots {
-    padding: 4rem 2rem;
-}
-
-#screenshots h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-}
-
-.screenshot-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #aaa;
 }
 
 .screenshot-item img {
     width: 100%;
     border-radius: 8px;
     border: 3px solid var(--card-background);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
 }
 
@@ -230,32 +236,15 @@ footer {
     border-color: var(--primary-yellow);
 }
 
-/* Download Section */
-#download {
-    padding: 4rem 2rem;
-}
-
-#download h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.download-intro {
+.download-intro, .roadmap-intro {
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 3rem;
+    margin: -1rem auto 3rem;
     color: #aaa;
 }
 
-.download-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
 .download-item {
-    background-color: var(--card-background);
+    background-color: var(--dark-background);
     padding: 2rem;
     border-radius: 8px;
     display: flex;
@@ -266,201 +255,82 @@ footer {
     color: var(--primary-yellow);
     margin-bottom: 0.5rem;
 }
+
 .download-item p {
-    flex-grow: 1; /* Ensures the button stays at the bottom */
+    flex-grow: 1;
     margin-bottom: 1.5rem;
 }
-.screenshot-item p {
-    text-align: center;
-    margin-top: 1rem;
-    font-weight: 700;
-    color: #aaa;
-}
 
-/* Menu Button and Sidebar */
-.menu-button { /* The button in the header for mobile view */
-    display: none; /* Only displayed on smaller screens */
-    background-color: var(--primary-yellow);
-    color: var(--dark-background) !important;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-family: var(--font-family);
-    font-weight: 700;
-    cursor: pointer;
-    font-size: 1rem;
-    text-decoration: none;
-}
-.menu-button:hover {
-    color: var(--dark-background) !important;
-}
-.cta-button.disabled {
-    background-color: #444;
-    color: #888;
-    cursor: not-allowed;
-    transform: none;
-}
-
-#sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh; /* Full viewport height */
-    width: 0; /* Closed by default on mobile devices */
-    background-color: #1f1f1f;
-    z-index: 200;
-    overflow: hidden;
-    transition: width 0.3s ease-in-out;
-    border-left: 1px solid var(--card-background);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#sidebar ul {
-    list-style: none;
+/* About Section */
+.about-content {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Spacing between items */
-    width: 220px; /* Fixed width for the content */
-}
-
-#sidebar ul li a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 1.2rem;
-    font-weight: 700;
-    padding: 0.5rem 0;
-    display: block;
-    transition: color 0.3s ease;
-}
-
-#sidebar ul li a:hover {
-    color: var(--primary-yellow);
-}
-
-/* --- Responsive Design --- */
-
-/* Mobile View (up to 768px) */
-@media (max-width: 768px) {
-    header .desktop-nav {
-        display: none;
-    }
-    .mobile-only {
-        display: block;
-        text-align: center; /* Ensure button text is centered if it wraps */
-    }
-    #sidebar.mobile-open {
-        width: 280px; /* Opens the sidebar on mobile devices */
-    }
-}
-@media (min-width: 769px) {
-    .mobile-only {
-        display: none;
-    }
-}
-
-/* Desktop View (from 1025px) */
-@media (min-width: 1025px) {
-    /* Hide main navigation in header, as it's in the sidebar */
-    .mobile-only {
-        display: none; /* Hide mobile menu button on desktop */
-    }
-
-    /* Display sidebar as a narrow bar */
-    #sidebar {
-        width: 60px;
-        padding-top: 60px;
-        justify-content: flex-start;
-    }
-    #sidebar ul li a {
-        text-indent: 200%; /* Hides the text, but keeps the space */
-        white-space: nowrap;
-    }
-
-    .desktop-only {
-        display: block;
-    }
-
-    /* Styles for the expanded sidebar on desktop */
-    #page-container.sidebar-open {
-        /* Shifts the entire page container (incl. header) to the left */
-        margin-right: 220px; /* 280px (open) - 60px (closed) = 220px */
-    }
-
-    #page-container.sidebar-open #sidebar {
-        width: 280px; /* Expands the sidebar */
-    }
-    #page-container.sidebar-open #sidebar ul li a {
-        text-indent: 0; /* Shows the text again */
-    }
-}
-
-/* Roadmap Section */
-#roadmap {
-    padding: 6rem 2rem;
-}
-
-#roadmap h2 {
+    align-items: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
-    font-size: 2.5rem;
+}
+
+.about-image {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-yellow);
+}
+
+.about-text p {
     margin-bottom: 1rem;
 }
 
-.roadmap-intro {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 4rem;
-    color: #aaa;
-}
-
+/* Roadmap Section */
 .roadmap-timeline {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 0; /* Spacing for the timeline */
-    /* The vertical line of the timeline */
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 20px;
-        height: 100%;
-        width: 3px;
-        background-color: var(--card-background);
-        border-radius: 3px;
-    }
+}
+
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 3px;
+    background-color: var(--dark-background);
+    border-radius: 3px;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 2rem; /* Spacing between items */
-    padding-left: 60px; /* Space for the dot */
-    /* The dot on the timeline */
-    &::before {
-        content: '';
-        position: absolute;
-        left: 12px; /* Centers the dot on the line */
-        top: 5px;
-        height: 18px;
-        width: 18px;
-        background-color: var(--primary-yellow);
-        border-radius: 50%;
-        border: 3px solid var(--dark-background);
-        z-index: 1;
-    }
+    margin-bottom: 2rem;
+    padding-left: 60px;
 }
 
-/* Different sizes for the dots */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 5px;
+    height: 18px;
+    width: 18px;
+    background-color: var(--primary-yellow);
+    border-radius: 50%;
+    border: 3px solid var(--card-background);
+    z-index: 1;
+}
+
 .timeline-item.major::before {
     transform: scale(1.2);
 }
+
 .timeline-item.edition::before {
     transform: scale(1.5);
-    background-color: #ffb300; /* A slightly darker yellow for the largest version */
+    background-color: #ffb300;
 }
 
-.timeline-content h3, .timeline-content h4, .timeline-content h5 {
+.timeline-content h3 {
     margin-bottom: 0.5rem;
 }
 
@@ -468,4 +338,53 @@ footer {
     color: #aaa;
     font-weight: 400;
     font-size: 0.9em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--card-background);
+}
+
+/* --- Responsive Design --- */
+
+/* Tablet and larger */
+@media (min-width: 769px) {
+    .about-content {
+        flex-direction: row;
+        text-align: left;
+        gap: 3rem;
+    }
+
+    .about-image {
+        flex-shrink: 0;
+    }
+
+    /* Sidebar pushes content */
+    #page-container.sidebar-open {
+        left: calc(-1 * var(--sidebar-width-open));
+    }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    #hero h2 {
+        font-size: 2.2rem;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    .roadmap-timeline::before {
+        left: 10px;
+    }
+    .timeline-item {
+        padding-left: 40px;
+    }
+    .timeline-item::before {
+        left: 2px;
+    }
 }
