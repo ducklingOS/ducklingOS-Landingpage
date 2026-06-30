@@ -85,6 +85,31 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Star/Dot Background Pattern */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(2px 2px at 20px 30px, var(--primary-yellow), transparent),
+        radial-gradient(2px 2px at 40px 70px, var(--primary-yellow-dark), transparent),
+        radial-gradient(1px 1px at 90px 40px, var(--primary-yellow-light), transparent),
+        radial-gradient(2px 2px at 130px 80px, var(--primary-yellow), transparent),
+        radial-gradient(1px 1px at 160px 30px, var(--primary-yellow-dark), transparent);
+    background-size: 200px 100px;
+    background-repeat: repeat;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+    animation: twinkle 20s linear infinite;
+}
+
+@keyframes twinkle {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100px); }
 }
 
 /* Custom Scrollbar */
