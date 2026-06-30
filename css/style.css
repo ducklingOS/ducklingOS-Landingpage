@@ -817,7 +817,7 @@ section {
 /* ===== Roadmap ===== */
 .roadmap-timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: var(--spacing-xl) 0;
 }
@@ -892,19 +892,24 @@ section {
 
 .timeline-content {
     background: var(--bg-card);
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     border-radius: var(--radius-md);
     border: 1px solid rgba(253, 216, 53, 0.1);
+    min-width: 300px;
+    max-width: 400px;
 }
 
 .timeline-content h3 {
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
     color: var(--primary-yellow);
+    font-size: 1.1rem;
+    line-height: 1.4;
 }
 
 .timeline-content p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .timeline-year {
@@ -1201,7 +1206,8 @@ section {
     }
     
     .timeline-content {
-        padding: var(--spacing-sm);
+        padding: var(--spacing-md);
+        min-width: 250px;
     }
     
     .about-content {
